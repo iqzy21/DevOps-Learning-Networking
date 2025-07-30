@@ -54,6 +54,7 @@ A router is a traffic guidance for a network and its job is to direct traffic be
 
 ### Firewalls
 A fire wall is a security guard for your network and it monitors what goes in and out of network traffic and has control over that. Fire walls are vital to protect the network from unauthorised access and monitoring / controlling network traffic.
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/06e9a341-d094-4055-9e92-6662ad136462" />
 
 ---
 
@@ -231,6 +232,51 @@ handles things like web browing, file transfers and emails
 components used in there are HTTP to access web services, FTP to transfer files  ,SMTP to send emails<img width="1000" height="3000" alt="image" src="https://github.com/user-attachments/assets/3039e016-cff5-4d91-8454-cd9a45373ccf" />
 
 
+TCP/IP Model
+This model is the backbone of the internet and is a condense format of th OSI model
+This model has 4 layers 
+application layer
+transport layer 
+internet layer 
+networj access layer 
+<img width="1000" height="500" alt="image" src="https://github.com/user-attachments/assets/6f481cf7-c9ff-4270-bdea-f3487e3bc4e6" />
+
+Application Layer
+This layer is where the network applications and their protocols operate.
+It's responsible for things like web browsing, email, DNS lookups, and more — basically any app that uses the network.
+Examples of protocols used here:
+HTTP – used for web pages
+TLS – adds encryption and security
+DNS – turns domain names (like google.com) into IP addresses
+
+Transport Layer
+This layer is responsible for end-to-end communication and data transfer between devices.
+It's like the delivery service that ensures your data reaches its destination safely and in the correct order.
+Protocols used here:
+TCP – reliable, ordered, and error-checked
+UDP – faster, but less reliable; no error checking
+
+Internet Layer
+This layer is responsible for logical addressing and routing data across different networks.
+It determines how data is sent to the recipient and chooses the best path through routers to get it there.
+Components used here:
+IP (Internet Protocol) – handles delivery of packets across networks
+Routers – direct traffic between networks
+
+Network Access Layer
+This is a condensed version of Layer 1 and Layer 2 of the OSI model.
+It deals with the physical and data link aspects of networking.
+This layer handles the actual sending of data over cables or Wi-Fi, and ensures the device connects properly to the network.
+Examples of technologies used here:
+Ethernet
+Wi-Fi
+MAC addresses
+LAN protocols
+
+OSI Layer - a pov froms sender
+<img width="667" height="354" alt="image" src="https://github.com/user-attachments/assets/d99a8552-e361-4d06-a7f6-8623354fcc7c" />
+OSI Layer - a pov froms reciever 
+<img width="674" height="357" alt="image" src="https://github.com/user-attachments/assets/6d945686-df23-40c1-b83c-3dc1150c8c68" />
 
 
 
