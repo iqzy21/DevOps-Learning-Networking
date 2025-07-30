@@ -686,7 +686,7 @@ Tasks:
 
 ---
 
-## Routing
+## CH4 Routing
 
 ### What is Routing and Why is it Important
 Routing is the process of deciding the best path for your data to travel across different networks like a gps for your data which figured out the best route from point a to b. Routing makes sure data is reaches its destination quickly and effectively without any issues. Routing is fundamental for the internet to run smoothly and its what keeps the communication of the internet streaming.
@@ -753,4 +753,213 @@ They use algorithms to figure out the best path for data to travel. They also au
 - **Extra Complexity** - BGP is more complex and powerful than OSPF. It's mainly covered in advanced networking topics (not in this course)
 
 ![Routing Protocols](https://github.com/user-attachments/assets/b4f78166-c3c4-4928-a718-f405865e6439)
+
+CH 5 Subnetting
+Subnetting is dividing 1 large network into smaller networks
+CIDR notation:
+stands for classless inter domain routiing now this is a method for allocating IP addresses and routing ID packets
+frormat: IP_address/prefix_length
+example: 192.168.1.0/24
+
+the ip address is the network address and the /24 indicates the first 24 bits
+
+binary basics:
+Binary is everywhere in networking and computer science. It’s the language computers use — made up of only 1s and 0s — and understanding it is key to learning how IP addresses, subnetting, and routing work.
+
+The binary system is called base-2, meaning each digit (called a bit) can only be 0 or 1. Computers like this because it’s easy for hardware to handle — 0 = off, 1 = on.
+
+🔢 Binary to Decimal – Quick Example
+Take the binary number 101010. Each bit represents a power of 2, starting from the rightmost digit, which is 2⁰.
+
+Breakdown:
+
+1×2⁵ = 32
+
+0×2⁴ = 0
+
+1×2³ = 8
+
+0×2² = 0
+
+1×2¹ = 2
+
+0×2⁰ = 0
+
+Add them up: 32 + 0 + 8 + 0 + 2 + 0 = 42
+
+So, 101010 in binary = 42 in decimal.
+
+🌐 Converting an IP Address to Binary
+IP addresses like 192.168.1.1 are made up of 4 octets. Each octet is just a normal decimal number (0 to 255), but behind the scenes, it's stored as an 8-bit binary number.
+
+Let’s convert 192 to binary:
+
+Start dividing 192 by 2 and record the remainders:
+
+192 ÷ 2 = 96 → R 0
+
+96 ÷ 2 = 48 → R 0
+
+48 ÷ 2 = 24 → R 0
+
+24 ÷ 2 = 12 → R 0
+
+12 ÷ 2 = 6 → R 0
+
+6 ÷ 2 = 3 → R 0
+
+3 ÷ 2 = 1 → R 1
+
+1 ÷ 2 = 0 → R 1
+
+Now read the remainders backwards: 11000000
+
+So, 192 in binary = 11000000
+
+Now let’s do the full IP: 192.168.1.1
+
+192 → 11000000
+
+168 → 10101000
+
+1 → 00000001
+
+1 → 00000001
+
+So the binary version of 192.168.1.1 is:
+11000000.10101000.00000001.00000001
+
+📝 Practice Example (with answer)
+Convert the following:
+
+IP Address: 10.0.0.1
+
+Subnet Mask: 255.0.0.0
+
+Answer:
+
+10 → 00001010
+
+0 → 00000000
+
+0 → 00000000
+
+1 → 00000001
+
+IP in binary = 00001010.00000000.00000000.00000001
+Subnet in binary = 11111111.00000000.00000000.00000000
+
+📊 Binary Conversion Chart (0–255)
+Decimal	Binary		Decimal	Binary		Decimal	Binary
+0	00000000		64	01000000		128	10000000
+1	00000001		65	01000001		192	11000000
+2	00000010		66	01000010		200	11001000
+10	00001010		100	01100100		224	11100000
+42	00101010		168	10101000		255	11111111
+
+📝 Tip: Only need to memorise a few (like 0, 1, 10, 128, 192, 255) for subnetting and IP address tasks.
+
+Let me know if you want a printable version or to move on to subnetting next!
+
+
+
+
+
+
+
+
+You said:
+i mean can you do what each number set means to the max like 1 = 1 1=2 1 =4 ect in a list 
+
+
+ChatGPT said:
+Ah got it! You're asking for a binary place value chart, showing what each bit position represents — basically, the power of 2 for each place in an 8-bit binary number (like an IP octet). Here's the list:
+
+📘 Binary Place Value Chart (8-bit)
+Each position in a binary number represents a power of 2, starting from the right (least significant bit).
+
+Bit Position	Binary Value	Meaning (2ⁿ)
+1st (right)	00000001	2⁰ = 1
+2nd	00000010	2¹ = 2
+3rd	00000100	2² = 4
+4th	00001000	2³ = 8
+5th	00010000	2⁴ = 16
+6th	00100000	2⁵ = 32
+7th	01000000	2⁶ = 64
+8th (left)	10000000	2⁷ = 128
+
+🧠 Tip: To convert binary to decimal, just add up the values of each 1-bit.
+Example: 10101000 → 128 + 32 + 8 = 168
+
+Let me know if you want a version for 16-bit or more!
+
+calculating subnets:
+subnet masks:
+a subnet mask is used to divide an ip address into network and host portions 
+It helps routers determine which part of an IP address is the network address and which part is the host address
+
+For example, if the subnet mask is 255.255.255.0, it means the first three numbers (255.255.255) are the network, and the last number (0) is for hosts — the devices on that network.
+
+That means the first 24 bits (3 × 8 bits) are for the network, and the last 8 bits are for the host devices. This is also written as /24. That “slash 24” just means 24 bits are for the network.
+
+In the image, you can see how this works for different IP classes:
+
+Class A uses 255.0.0.0 → only the first 8 bits are network bits
+
+Class B uses 255.255.0.0 → the first 16 bits are for the network
+
+Class C uses 255.255.255.0 → the first 24 bits are for the network
+
+So the more 255s you have in the subnet mask, the more bits are used for the network, and the fewer bits are left for devices. Subnet masks basically help devices know what part of an IP address is the main network, and what part can change to talk to different devices.
+<img width="404" height="292" alt="image" src="https://github.com/user-attachments/assets/99fc8b2f-acd1-436f-8801-89970dc657e6" />
+
+NAT network address calculation
+
+converts private ips for different devices into 1 singular ip for the internet 
+without nat each device would need thir own ip to acces the internet limiting praticality as ipv4 is running out of nunbers
+also hels internal network talk to the inetrnet 
+
+how nat wirks:
+process:
+internal devices use private ip address 
+then router translates private IP to public IP 
+then communication is faccilitates between networks
+
+Let’s say you have a device like a computer on your home network. It has a private IP address — for example, 192.168.1.10. Now this device wants to send data to a website with a public IP address, like 172.217.1.46.
+
+When your computer sends the data, it first goes to your router. This is where NAT comes in.
+
+Your router uses NAT to change the source IP from your private IP (192.168.1.10) to your public IP address. Let’s say your public IP is 98.117.53.254. This step is important because the internet doesn’t recognize private IPs — it only accepts public IP addresses.
+
+So, your router sends the data out using 98.117.53.254 as the source IP. When the website receives the request, it sees your public IP (the router’s IP) and sends the response back to it.
+
+When that data comes back, the router uses NAT again to translate the public IP back to your private IP, and then it delivers the data to your device (192.168.1.10).
+<img width="687" height="166" alt="image" src="https://github.com/user-attachments/assets/ddeb0a8f-4c96-4067-a9ed-c26d4a581c9f" />
+
+types of NAT:
+static NAT - it maps a single private Ip address to a single public IP address its direct mapping and is liek hving a 1-1 translater for your device
+useful if you have a device that needs to be accessed from 1 ip all the time like a web server 
+
+dynamic NAT - unlike static this doesnt map 1-1, it maps a private ip address to one of many public ip addresses in a pool
+its like a pool of translators that can handle different devices as needed
+This way your device gets an ip adress when they need to use the internet
+once done the ip address goes back to the pool for some one else to use
+
+PAT Port address translation  - Pat is useful because of its efficiency it allows multiple devices on a local network to be mapped to a single public ip address but with different port numbers 
+it can assign diofferent ports to different devicces under 1 public ip 
+this is what many home routers use as its a great way to save public IP ADRESSES 
+
+Simple NAT example
+<img width="571" height="292" alt="image" src="https://github.com/user-attachments/assets/11abd816-93f0-4d7c-a8d2-66da8975115f" />
+
+Why is it important for engineers
+conserves public ip addresses
+enchances network security 
+simplifies network design and management 
+
+CH 6 network trouble shooting
+
+
+
+
 
