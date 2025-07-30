@@ -205,4 +205,32 @@ it decides the best path for data to travel in a network ensuring it gets to the
 components that are used here are IP addresses and routers
 
 layer 4 - transport layer 
-This layer is 
+This layer is responsible for providing reliable data transfer services to the upper layers
+it is like the delivery service that ensures your data arrives saftley and in correct sequence
+the protocols that allow this to happen are tcp and udp 
+TCP provides reliable audited and error  free data 
+EDP does the same but its more faster and less reliable
+
+layer 5 - session layer 
+This layer is responsibkle for 3 things. establishing, managing and terminating session.
+Establishing session - session is getting started e.g logging into website
+Maintaining session - keeping the session alive anmd running ensuring requestsz continue smoothly
+Terminating session - Ending the session e.g logging out the browser 
+components that are used here are session managment protocals such as RPC, NetBIOS and more 
+
+Layer 6 - presentation layer
+This layer is also known as the syntax lay because it ensures data being sent is in a useable or readable format.
+Its liek a translater that translate data into a format the application layer can udnerstand 
+Components: 
+encyrption - ensures data security e.g plain text can be encyrpted text
+data formating - can convert things into a format for example JPEG or PNG also thing like SSL and TSL
+
+Layer 7 - application
+This layer provides network services directly to applications this also could be the end user layer where everything happens when a user interacts with a device
+handles things like web browing, file transfers and emails
+components used in there are HTTP to access web services, FTP to transfer files  ,SMTP to send emails<img width="1000" height="3000" alt="image" src="https://github.com/user-attachments/assets/3039e016-cff5-4d91-8454-cd9a45373ccf" />
+
+
+
+
+
