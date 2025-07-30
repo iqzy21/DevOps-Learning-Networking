@@ -524,3 +524,10 @@ How it works:
 when you type a domain name into your browser your computer lookst at the /etc/hosts file to see if the domain is listed there
 if its there it will use the provided IP address instead of quiring the dns server which is good for troubleshooting, developinng or testing 
 
+how to edit /etc/hosts?
+open text edito or vs code admin privilages are required 
+add entry in this format IP_ADDRESS DOMAIN_NAME
+example: 123.0.0.1 example.com
+
+tasks<img width="748" height="321" alt="image" src="https://github.com/user-attachments/assets/5287fe82-411e-48fb-84d4-8e06523441ef" />
+
