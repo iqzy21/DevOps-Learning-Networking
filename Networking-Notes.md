@@ -40,6 +40,7 @@ For example when you send a file from your computer in your home to a printer th
 
 ### WAN (Wide Area Network)
 WAN connects devices on a larger scale such as universities or businesses and are used for large areas. They connect multiple lans together to be able to output a large range of network and is like a highway for data.
+<img width="1024" height="576" alt="image" src="https://github.com/user-attachments/assets/89086ef5-282f-434c-8846-77929c73dd2f" />
 
 ---
 
@@ -149,3 +150,59 @@ UDP is like sending a postcard without tracking. It sends data from one device t
 ### Quick Comparison
 
 ![TCP vs UDP Comparison](https://github.com/user-attachments/assets/dc0a3fd9-9065-4f0d-ad54-7c5ae4a0dc55)
+<img width="1024" height="493" alt="image" src="https://github.com/user-attachments/assets/f8ef8119-6944-40f5-b0f9-acb6074e17f0" />
+
+CH2 OSI model
+OSI stands for Open Syetems Interconnection Model 
+
+The 7 layers of the OSI model
+Why do we need a communication model?
+a communication model provides a standard frame work the way that simplifies the way devices and applications communicate over a network in shor these models make sures devices can understand each other 
+
+Application independence:  
+without a standar model applications would need to understand the specifics of underlying network
+imagione if you needed to create different versions of your application/wifi/fibre or ethernet that would be hard
+with a communication model applications can work independently of the network making development and conding more efficient
+
+simplified network equipment management:
+upgrading network exupment can be a hastle if there is not a standard model to follow
+with the standard model communucation its easier to upgrade and manage network gear becasue they use the same language and this standardisation makes upgrading smoother and less prone to issues
+
+decouple innovation:
+thiss means that innovations and any update can happen at each layer of the model without interfesaring with the while system
+
+The 7 layers:
+Application layer - This is where network services are given directly to applications
+Presentation layer - This is where data is translated into a readable format and where encryption is also handled
+session layer - can manage sesssion s between different applications like TSL, sockets and more.
+Transport layer - In this layer end to end communication and data integrity is managed where you have the two protocals TCP and UDP
+Network layer - here routing with data packets is managed here you deal with IP, ICMP IPSec and more
+Data link layer - Here node to node transfer and error detection is managed and you come accross things like frames, ethernet, switches, bridges and more
+physical layer - physical layer between devices fibres, wireless,hubs and more 
+<img width="1280" height="752" alt="image" src="https://github.com/user-attachments/assets/dc41c6ed-b3ec-42f2-83ce-657ee77e5d96" />
+
+7 layers in more detail: 
+Layer 1 - physical layer:
+This ayer transmits raw bit streams over the physical medium 
+This deals with hard ware connection such as cables, switches and entwork interface cards
+ecamples of physical medium:
+copper wires that have electric signal
+fibre 
+light waves
+wifi with frequency waves
+Also all deta is processed by all devices
+
+Layer 2 - data link layer 
+This layer is reponsible for node to node data transfer this ensures data packets are send and recieved correcty between different network nodes 
+ist all abouut mainting a reliable link between different devices 
+so at layer one everything is unordered and sent randomly but this layer fixes that putting your data into frames that are organised 
+now frames are like envelops that carry the data and ensure it gets to the right places
+components that are used here are mac addresses, switches and bridges 
+
+layer 3 -  network later 
+This layer determens how data iss ent to recipients and manages packets forwading including routing through different routers
+it decides the best path for data to travel in a network ensuring it gets to the right place 
+components that are used here are IP addresses and routers
+
+layer 4 - transport layer 
+This layer is 
