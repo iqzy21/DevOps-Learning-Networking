@@ -531,3 +531,132 @@ example: 123.0.0.1 example.com
 
 tasks<img width="748" height="321" alt="image" src="https://github.com/user-attachments/assets/5287fe82-411e-48fb-84d4-8e06523441ef" />
 
+routing
+what is routing ands why is it important
+routing is the process of debating the best path for your data to travel across different networks like a gps for your data 
+which figured out the best route from point a to b
+routing makes suure data is reaches its destination quickly and effectivley without any issues 
+Routing is fundemental for the internet to run smoothly and its what keeps the communication of the internet streaming 
+
+router is the component 
+routing tables is what they use to help send data
+Data Routing – Step-by-Step Overview
+Start at Computer 1 (Your Device)
+
+You send a message or request (e.g., visiting a website, sending an email).
+
+Data Sent to Your Router
+
+The router is the first stop for your data.
+
+It checks its routing table to decide the best next hop for the data.
+
+Router Forwards the Data
+
+Based on the routing table, your router determines the best network path.
+
+The data is sent to the next router on the path.
+
+Data Hops Through Multiple Networks
+
+The data might pass through multiple networks (e.g., Network 1 → Network 3 → Network 4).
+
+Each router along the way repeats the process: checks its routing table, finds the best next hop, and forwards the data.
+
+Final Destination – Computer 2
+
+After passing through several networks, the data finally reaches its intended destination, Computer 2.
+
+Routing Summary
+
+Routing = Finding the best path for data to travel across multiple networks from the source to the destination.
+
+It ensures data is delivered efficiently and correctly, even if it takes different paths each time.
+diagram of routing 
+<img width="879" height="483" alt="image" src="https://github.com/user-attachments/assets/a52926ad-1bf5-4bbe-a734-4d51e4b8cbea" />
+
+why is routing imporyant in dev ops
+network performance optomisation - when your router is good this ensures your data packets take a good path redcuing latency making it faster 
+ensures reliable application delivery - proper routing is crucial for delivery applications and services especially in complex coud environments 
+crutial for maniging complext infrastructure 
+
+static and dynamic routing 
+static routing:
+This is where routes are manually set up by networj admins and its liek giving you data a fixed map to follow 
+its reliable but doesn adapt well if there is a change to the route or any issues if the route changes you have ti update itr manually
+its good for small and stable networks but not good for big networks 
+
+Dynamic routing:
+how ever dyanmic is more ffective as it uses algorithms and much more complex protocals to automaticly find the best path for data its more flexible and adapts to network change 
+automaticly adjust routes based on the condition 
+this is used for larger tasks as its scalable and adaptable 
+
+common routing protocals:
+whata re routing protocals
+routing protocals are necessary because they automate the provess of the best  route for data to travel accross a newtwork 
+instead fo setting routes manually the protocols do it for us and its like having smart assistant the constantly updates your directions alsomthey enchance network effieciency by making your data choose the fastest route 
+
+they use algorthsms to figure out the best path for data rto travel 
+they also automate routing updates meaning you dont have to manually configiure evrrytging 
+and they improve network eresilliencve by finding alternitive paths if one goes down
+
+2 cokmmon routing protocols 
+OSPF and BGP
+
+OSPF (Open Shortest Path First) – Key Points
+Name & Function
+
+OSPF = Open Shortest Path First.
+
+As the name suggests, it finds the shortest path for data to travel.
+
+Where It’s Used
+
+Mainly used within large organizations (an interior routing protocol).
+
+How It Works
+
+Uses link-state information to make routing decisions.
+
+Considers the status of network links and the cost of using them.
+
+Fast Convergence
+
+Can quickly recalculate routes when changes occur in the network (e.g., a router goes down).
+
+Why It’s Important
+
+Provides efficient routing with minimal delay when the network topology changes.
+
+BGP (Border Gateway Protocol) – Key Points
+Name & Function
+
+BGP = Border Gateway Protocol.
+
+Used for routing between different autonomous systems (AS).
+
+Autonomous Systems
+
+An autonomous system = a large network managed by a single organization.
+
+BGP connects these large networks together.
+
+How It Works
+
+Uses a path vector mechanism:
+
+Maintains and updates path information as network topology changes.
+
+Routing Policies
+
+Network admins can define routing policies based on attributes.
+
+Provides fine control over how traffic flows between networks.
+
+Extra Complexity
+
+BGP is more complex and powerful than OSPF.
+
+It’s mainly covered in advanced networking topics (not in this course).
+<img width="659" height="287" alt="image" src="https://github.com/user-attachments/assets/b4f78166-c3c4-4928-a718-f405865e6439" />
+
