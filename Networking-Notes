@@ -1,0 +1,54 @@
+networking notes
+
+ch 1 funda mentals
+📡 Overview of Computer Networks – Notes
+a computer network is is a group of devices connetced to each other to share information 
+there is more than 10 types of networks 
+but the 2 main ones are LAN and WAN 
+LAN is a network that is used in small areas like a home network 
+WAN is a network that is used in bigger areas liek schools, businesses 
+
+The purpose of thse are communication and resource sharing
+
+Netwrks allow us to 
+communicate between devices, 
+share resources like files to other devices e.g printers
+provides internet functionality for browsing and streaming
+is the foundation for app conectivity and data transfer
+
+in devops networks provide:
+server interaction: enables communication between servers and applications
+deployment: ccritical for launching and updating applications
+manegement: important for monitoring and infrastructure maniging
+optimisation: betters trouble shooting performance and scalability so data can flow efficiently 
+
+
+LAN VS WAN
+LAN:
+connects devices within a small area such as a home or office and are used for small areas 
+it allows you to communicate with different devices within a small area
+for example when you send a fdile from your computer i your home to a printer this operates on lan 
+and it also provides internet access in a small area
+
+WAN:
+WAN connects devices on a larger scale such as universities or buisnessis and are used for large areas
+They connect multiple lans together to be able to out put a large range of network and is liek a high way for data
+
+key network components 
+switches, routers and firewall
+a switch is a manager for a local network and connects multiple devices within a same network 
+a switch maneges data flow and makes sure that data flows effectivley to devises and prevents any congestion
+
+a router is a traffic guidence for a newtrok and its job is to direct traffic between different networks 
+in your home a router connects the internet to your computer and ensures data gets to the right place 
+
+a fire wall is a security guard for yournetwork and it monitors what goes in and out of network traficc and has control over that 
+fire walls are vital to protect the netwrok from unauthorised access and monitoring / controlling network traffic
+
+IP adddress and MAC  address
+IP address (Internet protocal address) allows devices to lowcate and communicate with each other
+
+There are 2 main types IPV4 AND IPV6
+
+IPV4
+They are the most comman and look like this 
