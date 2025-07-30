@@ -754,212 +754,249 @@ They use algorithms to figure out the best path for data to travel. They also au
 
 ![Routing Protocols](https://github.com/user-attachments/assets/b4f78166-c3c4-4928-a718-f405865e6439)
 
-CH 5 Subnetting
+## CH 5 Subnetting
+
 Subnetting is dividing 1 large network into smaller networks
-CIDR notation:
-stands for classless inter domain routiing now this is a method for allocating IP addresses and routing ID packets
-frormat: IP_address/prefix_length
-example: 192.168.1.0/24
 
-the ip address is the network address and the /24 indicates the first 24 bits
+### CIDR Notation
 
-binary basics:
-Binary is everywhere in networking and computer science. It’s the language computers use — made up of only 1s and 0s — and understanding it is key to learning how IP addresses, subnetting, and routing work.
+Stands for classless inter domain routing now this is a method for allocating IP addresses and routing ID packets
 
-The binary system is called base-2, meaning each digit (called a bit) can only be 0 or 1. Computers like this because it’s easy for hardware to handle — 0 = off, 1 = on.
+**Format:** `IP_address/prefix_length`
 
-🔢 Binary to Decimal – Quick Example
+**Example:** `192.168.1.0/24`
+
+The ip address is the network address and the /24 indicates the first 24 bits
+
+### Binary Basics
+
+Binary is everywhere in networking and computer science. It's the language computers use — made up of only 1s and 0s — and understanding it is key to learning how IP addresses, subnetting, and routing work.
+
+The binary system is called base-2, meaning each digit (called a bit) can only be 0 or 1. Computers like this because it's easy for hardware to handle — 0 = off, 1 = on.
+
+#### 🔢 Binary to Decimal – Quick Example
+
 Take the binary number 101010. Each bit represents a power of 2, starting from the rightmost digit, which is 2⁰.
 
-Breakdown:
-
-1×2⁵ = 32
-
-0×2⁴ = 0
-
-1×2³ = 8
-
-0×2² = 0
-
-1×2¹ = 2
-
-0×2⁰ = 0
+**Breakdown:**
+- 1×2⁵ = 32
+- 0×2⁴ = 0
+- 1×2³ = 8
+- 0×2² = 0
+- 1×2¹ = 2
+- 0×2⁰ = 0
 
 Add them up: 32 + 0 + 8 + 0 + 2 + 0 = 42
 
 So, 101010 in binary = 42 in decimal.
 
-🌐 Converting an IP Address to Binary
+#### 🌐 Converting an IP Address to Binary
+
 IP addresses like 192.168.1.1 are made up of 4 octets. Each octet is just a normal decimal number (0 to 255), but behind the scenes, it's stored as an 8-bit binary number.
 
-Let’s convert 192 to binary:
+**Let's convert 192 to binary:**
 
 Start dividing 192 by 2 and record the remainders:
+- 192 ÷ 2 = 96 → R 0
+- 96 ÷ 2 = 48 → R 0
+- 48 ÷ 2 = 24 → R 0
+- 24 ÷ 2 = 12 → R 0
+- 12 ÷ 2 = 6 → R 0
+- 6 ÷ 2 = 3 → R 0
+- 3 ÷ 2 = 1 → R 1
+- 1 ÷ 2 = 0 → R 1
 
-192 ÷ 2 = 96 → R 0
+Now read the remainders backwards: `11000000`
 
-96 ÷ 2 = 48 → R 0
+So, 192 in binary = `11000000`
 
-48 ÷ 2 = 24 → R 0
-
-24 ÷ 2 = 12 → R 0
-
-12 ÷ 2 = 6 → R 0
-
-6 ÷ 2 = 3 → R 0
-
-3 ÷ 2 = 1 → R 1
-
-1 ÷ 2 = 0 → R 1
-
-Now read the remainders backwards: 11000000
-
-So, 192 in binary = 11000000
-
-Now let’s do the full IP: 192.168.1.1
-
-192 → 11000000
-
-168 → 10101000
-
-1 → 00000001
-
-1 → 00000001
+**Now let's do the full IP: 192.168.1.1**
+- 192 → 11000000
+- 168 → 10101000
+- 1 → 00000001
+- 1 → 00000001
 
 So the binary version of 192.168.1.1 is:
-11000000.10101000.00000001.00000001
+`11000000.10101000.00000001.00000001`
 
-📝 Practice Example (with answer)
+#### 📝 Practice Example (with answer)
+
 Convert the following:
+- **IP Address:** 10.0.0.1
+- **Subnet Mask:** 255.0.0.0
 
-IP Address: 10.0.0.1
+**Answer:**
+- 10 → 00001010
+- 0 → 00000000
+- 0 → 00000000
+- 1 → 00000001
 
-Subnet Mask: 255.0.0.0
+- IP in binary = `00001010.00000000.00000000.00000001`
+- Subnet in binary = `11111111.00000000.00000000.00000000`
 
-Answer:
+#### 📊 Binary Conversion Chart (0–255)
 
-10 → 00001010
+| Decimal | Binary   | Decimal | Binary   | Decimal | Binary   |
+|---------|----------|---------|----------|---------|----------|
+| 0       | 00000000 | 64      | 01000000 | 128     | 10000000 |
+| 1       | 00000001 | 65      | 01000001 | 192     | 11000000 |
+| 2       | 00000010 | 66      | 01000010 | 200     | 11001000 |
+| 10      | 00001010 | 100     | 01100100 | 224     | 11100000 |
+| 42      | 00101010 | 168     | 10101000 | 255     | 11111111 |
 
-0 → 00000000
+**📝 Tip:** Only need to memorise a few (like 0, 1, 10, 128, 192, 255) for subnetting and IP address tasks.
 
-0 → 00000000
+#### 📘 Binary Place Value Chart (8-bit)
 
-1 → 00000001
-
-IP in binary = 00001010.00000000.00000000.00000001
-Subnet in binary = 11111111.00000000.00000000.00000000
-
-📊 Binary Conversion Chart (0–255)
-Decimal	Binary		Decimal	Binary		Decimal	Binary
-0	00000000		64	01000000		128	10000000
-1	00000001		65	01000001		192	11000000
-2	00000010		66	01000010		200	11001000
-10	00001010		100	01100100		224	11100000
-42	00101010		168	10101000		255	11111111
-
-📝 Tip: Only need to memorise a few (like 0, 1, 10, 128, 192, 255) for subnetting and IP address tasks.
-
-Let me know if you want a printable version or to move on to subnetting next!
-
-
-
-
-
-
-
-
-You said:
-i mean can you do what each number set means to the max like 1 = 1 1=2 1 =4 ect in a list 
-
-
-ChatGPT said:
-Ah got it! You're asking for a binary place value chart, showing what each bit position represents — basically, the power of 2 for each place in an 8-bit binary number (like an IP octet). Here's the list:
-
-📘 Binary Place Value Chart (8-bit)
 Each position in a binary number represents a power of 2, starting from the right (least significant bit).
 
-Bit Position	Binary Value	Meaning (2ⁿ)
-1st (right)	00000001	2⁰ = 1
-2nd	00000010	2¹ = 2
-3rd	00000100	2² = 4
-4th	00001000	2³ = 8
-5th	00010000	2⁴ = 16
-6th	00100000	2⁵ = 32
-7th	01000000	2⁶ = 64
-8th (left)	10000000	2⁷ = 128
+| Bit Position | Binary Value | Meaning (2ⁿ) |
+|--------------|--------------|--------------|
+| 1st (right)  | 00000001     | 2⁰ = 1       |
+| 2nd          | 00000010     | 2¹ = 2       |
+| 3rd          | 00000100     | 2² = 4       |
+| 4th          | 00001000     | 2³ = 8       |
+| 5th          | 00010000     | 2⁴ = 16      |
+| 6th          | 00100000     | 2⁵ = 32      |
+| 7th          | 01000000     | 2⁶ = 64      |
+| 8th (left)   | 10000000     | 2⁷ = 128     |
 
-🧠 Tip: To convert binary to decimal, just add up the values of each 1-bit.
-Example: 10101000 → 128 + 32 + 8 = 168
+**🧠 Tip:** To convert binary to decimal, just add up the values of each 1-bit.
 
-Let me know if you want a version for 16-bit or more!
+**Example:** 10101000 → 128 + 32 + 8 = 168
 
-calculating subnets:
-subnet masks:
-a subnet mask is used to divide an ip address into network and host portions 
-It helps routers determine which part of an IP address is the network address and which part is the host address
+### Calculating Subnets
+
+#### Subnet Masks
+
+A subnet mask is used to divide an ip address into network and host portions. It helps routers determine which part of an IP address is the network address and which part is the host address.
 
 For example, if the subnet mask is 255.255.255.0, it means the first three numbers (255.255.255) are the network, and the last number (0) is for hosts — the devices on that network.
 
-That means the first 24 bits (3 × 8 bits) are for the network, and the last 8 bits are for the host devices. This is also written as /24. That “slash 24” just means 24 bits are for the network.
+That means the first 24 bits (3 × 8 bits) are for the network, and the last 8 bits are for the host devices. This is also written as /24. That "slash 24" just means 24 bits are for the network.
 
 In the image, you can see how this works for different IP classes:
-
-Class A uses 255.0.0.0 → only the first 8 bits are network bits
-
-Class B uses 255.255.0.0 → the first 16 bits are for the network
-
-Class C uses 255.255.255.0 → the first 24 bits are for the network
+- **Class A** uses 255.0.0.0 → only the first 8 bits are network bits
+- **Class B** uses 255.255.0.0 → the first 16 bits are for the network
+- **Class C** uses 255.255.255.0 → the first 24 bits are for the network
 
 So the more 255s you have in the subnet mask, the more bits are used for the network, and the fewer bits are left for devices. Subnet masks basically help devices know what part of an IP address is the main network, and what part can change to talk to different devices.
-<img width="404" height="292" alt="image" src="https://github.com/user-attachments/assets/99fc8b2f-acd1-436f-8801-89970dc657e6" />
 
-NAT network address calculation
+![Subnet Mask Classes](https://github.com/user-attachments/assets/99fc8b2f-acd1-436f-8801-89970dc657e6)
 
-converts private ips for different devices into 1 singular ip for the internet 
-without nat each device would need thir own ip to acces the internet limiting praticality as ipv4 is running out of nunbers
-also hels internal network talk to the inetrnet 
+### NAT Network Address Translation
 
-how nat wirks:
-process:
-internal devices use private ip address 
-then router translates private IP to public IP 
-then communication is faccilitates between networks
+Converts private ips for different devices into 1 singular ip for the internet. Without nat each device would need their own ip to access the internet limiting practicality as ipv4 is running out of numbers. Also helps internal network talk to the internet.
 
-Let’s say you have a device like a computer on your home network. It has a private IP address — for example, 192.168.1.10. Now this device wants to send data to a website with a public IP address, like 172.217.1.46.
+#### How NAT Works
+
+**Process:**
+1. Internal devices use private ip address
+2. Then router translates private IP to public IP
+3. Then communication is facilitated between networks
+
+Let's say you have a device like a computer on your home network. It has a private IP address — for example, 192.168.1.10. Now this device wants to send data to a website with a public IP address, like 172.217.1.46.
 
 When your computer sends the data, it first goes to your router. This is where NAT comes in.
 
-Your router uses NAT to change the source IP from your private IP (192.168.1.10) to your public IP address. Let’s say your public IP is 98.117.53.254. This step is important because the internet doesn’t recognize private IPs — it only accepts public IP addresses.
+Your router uses NAT to change the source IP from your private IP (192.168.1.10) to your public IP address. Let's say your public IP is 98.117.53.254. This step is important because the internet doesn't recognize private IPs — it only accepts public IP addresses.
 
-So, your router sends the data out using 98.117.53.254 as the source IP. When the website receives the request, it sees your public IP (the router’s IP) and sends the response back to it.
+So, your router sends the data out using 98.117.53.254 as the source IP. When the website receives the request, it sees your public IP (the router's IP) and sends the response back to it.
 
 When that data comes back, the router uses NAT again to translate the public IP back to your private IP, and then it delivers the data to your device (192.168.1.10).
-<img width="687" height="166" alt="image" src="https://github.com/user-attachments/assets/ddeb0a8f-4c96-4067-a9ed-c26d4a581c9f" />
 
-types of NAT:
-static NAT - it maps a single private Ip address to a single public IP address its direct mapping and is liek hving a 1-1 translater for your device
-useful if you have a device that needs to be accessed from 1 ip all the time like a web server 
+![NAT Process](https://github.com/user-attachments/assets/ddeb0a8f-4c96-4067-a9ed-c26d4a581c9f)
 
-dynamic NAT - unlike static this doesnt map 1-1, it maps a private ip address to one of many public ip addresses in a pool
-its like a pool of translators that can handle different devices as needed
-This way your device gets an ip adress when they need to use the internet
-once done the ip address goes back to the pool for some one else to use
+#### Types of NAT
 
-PAT Port address translation  - Pat is useful because of its efficiency it allows multiple devices on a local network to be mapped to a single public ip address but with different port numbers 
-it can assign diofferent ports to different devicces under 1 public ip 
-this is what many home routers use as its a great way to save public IP ADRESSES 
+**Static NAT** - It maps a single private IP address to a single public IP address its direct mapping and is like having a 1-1 translator for your device. Useful if you have a device that needs to be accessed from 1 ip all the time like a web server.
 
-Simple NAT example
-<img width="571" height="292" alt="image" src="https://github.com/user-attachments/assets/11abd816-93f0-4d7c-a8d2-66da8975115f" />
+**Dynamic NAT** - Unlike static this doesn't map 1-1, it maps a private ip address to one of many public ip addresses in a pool. Its like a pool of translators that can handle different devices as needed. This way your device gets an ip address when they need to use the internet. Once done the ip address goes back to the pool for some one else to use.
 
-Why is it important for engineers
-conserves public ip addresses
-enchances network security 
-simplifies network design and management 
+**PAT Port Address Translation** - PAT is useful because of its efficiency it allows multiple devices on a local network to be mapped to a single public ip address but with different port numbers. It can assign different ports to different devices under 1 public ip. This is what many home routers use as its a great way to save public IP addresses.
 
-CH 6 network trouble shooting
+#### Simple NAT Example
 
+![Simple NAT Example](https://github.com/user-attachments/assets/11abd816-93f0-4d7c-a8d2-66da8975115f)
 
+#### Why is it Important for Engineers
 
+- Conserves public ip addresses
+- Enhances network security
+- Simplifies network design and management
 
+## CH 6 Network Troubleshooting
 
+### Why Troubleshoot?
+
+**Ensure smooth operations** - Regular checks and maintenance keeps your network running smoothly and keeps your networks in top shape preventing issues from becoming big problems.
+
+**Identify and fix network problems** - Find the root cause and fix it so it runs smoothly.
+
+**Minimise down time** - Fix problems quicker and get down time back up.
+
+### Common Network Issues
+
+- Connectivity loss
+- Slow network performance
+- IP address conflicts
+- DNS resolution failures
+
+### Identifying Symptoms
+
+**Observe the problem**
+
+**Symptom:** Device can't access the network
+
+**Steps to diagnose:**
+1. Check physical connections
+2. Verify network config
+3. Test with ping command
+
+### Troubleshoot with ping, traceroute, nslookup
+
+**The ping command** is used to test connectivity between devices
+
+![Ping Command](https://github.com/user-attachments/assets/9fb455ea-3e40-4d0f-be8a-ced46ddba861)
+
+**Traceroute** tracks the path your data takes to reach a certain destination if i search up a website then want to know what path my packets are going then it goes through from my computer to the router to a different network until it reaches the final endpoint.
+
+![Traceroute Command](https://github.com/user-attachments/assets/9d5bfe2a-24e6-4ced-a19a-c662feebf80e)
+
+**Nslookup** is a tool to query dns and find an IP address associated with domain name with ping
+
+![Nslookup Command](https://github.com/user-attachments/assets/6ff453eb-a132-467c-aa76-21847d7001b4)
+
+### 🌐 Troubleshooting: Can't Access a Website
+
+1. **Step back and stay calm** - The issue is vague, so start from the basics and move step by step.
+
+2. **Check network connection** - Make sure you're connected to the internet. Run: `ping google.com`. If you get replies, your network is likely fine.
+
+3. **Test DNS resolution** - Run: `nslookup google.com` or `dig google.com`. Confirms whether DNS is working properly.
+
+4. **Check the hosts file** - Make sure the website isn't being blocked or redirected manually.
+
+5. **Check firewall settings** - See if a firewall is blocking outgoing or incoming connections.
+
+6. **Restart your browser** - Sometimes it's just the browser acting up. Try closing and reopening it.
+
+7. **Clear DNS cache** - Run: `ipconfig /flushdns` (on Windows). Helps if cached DNS entries are incorrect.
+
+8. **Check system logs** - Look for error messages related to networking or browser issues.
+
+9. **Run a traceroute** - Run: `tracert google.com` (Windows) or `traceroute google.com` (Linux/macOS). Shows where the connection is failing along the route.
+
+## Cloud Networking
+
+Cloud networking is the practice of managing and configuring network cloud environments. This is important because it makes sure our applications and services can communicate efficiently and securely. In real life you work with physical hardware like routers and switches however in cloud networking these are virtual. You create many of the software which gives huge flexibility and scalability. For dev ops understanding cloud networking is crucial as it allows us to set up and manage infrastructure that applications run on.
+
+### Key Components
+
+**VPCs (Virtual Private Clouds)** - Its your own private network you can define the IP address range create subnets and configure route tables and gateways its like setting a data centre in a cloud.
+
+**Subnets** - This is a subcomponent and are subdivisions of your VPC you can have different subnets resources like one for your application server one for your databases and so on.
+
+**Gateways** - Is what connects your VPC to the internet and handle in and out traffic.
+
+![Cloud Networking](https://github.com/user-attachments/assets/d5fe59c6-5993-4bf5-a45a-7f19892750ab)
